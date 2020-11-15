@@ -1,0 +1,23 @@
+#header{
+    background-image: linear-gradient(#aa02f8dd, #b101d4);
+    width: 100vw;
+    height: 5rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+   
+}
+
+.maintext{
+    color: white;
+    font-size: 2rem;
+
+    padding: 0 2rem;
+}
+
+.buttons{
+    border: 2px solid black;
+    margin-right: 2rem;
+}
