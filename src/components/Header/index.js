@@ -1,12 +1,13 @@
 import './style.css';
 
+import UserImage from '../../assets/poketrainer.jpg';
+
 function Header() {
     return (
         <div id="header">
             <p className="maintext">Pokedex</p>
-            <div className="buttons">
-                <button className="login">Login</button>
-                <button className="register">Register</button>
+            <div className="log">
+               <img alt="user" src={UserImage}/>
             </div>
         </div>
     );

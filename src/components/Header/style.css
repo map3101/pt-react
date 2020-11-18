@@ -12,12 +12,27 @@
 
 .maintext{
     color: white;
-    font-size: 2rem;
+    font-size: 3rem;
 
-    padding: 0 2rem;
+    padding: 0 4rem 0.4rem 4rem;
 }
 
-.buttons{
+.log{
+    margin-right: 4rem;
+
+    text-align: center;
+
+
+    font-weight: lighter;
+    color: #ffffff;
+
+    cursor: pointer;
+    
+}
+
+.log img{
+    width: 2.5rem;
     border: 2px solid black;
-    margin-right: 2rem;
+    border-radius: 50%;
 }
+
