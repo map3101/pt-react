@@ -22,7 +22,8 @@ export default function Pokelist({ page }) {
                 {pokemons.map((pokemon) => (
                     <li className="pokemon" key={pokemon.id}>
                         <img alt="pokemon" src={pokemon.image_url} />
-                        <p>{pokemon.name[0].toUpperCase() + pokemon.name.slice(1)}</p>
+                        <p id="number">#{pokemon.number}</p>
+                        <p className="nome">{pokemon.name[0].toUpperCase() + pokemon.name.slice(1)}</p>
                     </li>
                 ))
                 }
