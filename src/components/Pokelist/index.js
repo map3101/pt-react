@@ -1,6 +1,7 @@
 import './style.css'
 
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 const types = {
@@ -23,22 +24,22 @@ const types = {
     dragon: "#43372D"
 }
 
+// Pegar o(s) tipo(s) do pokemon e retornar um gradiente com a cor
 function getColor(type) {
     var pos = type.search(";"); 
     if (pos === -1) {
-        return 'linear-gradient(' + types[type] + "," + types[type] + "aa)"
+        return "linear-gradient(" + types[type] + "," + types[type] + "aa)"
     }
     else{
         var type1 = type.slice(0,pos);
         var type2 = type.slice(pos+1);
-        return 'linear-gradient(to right,' + types[type1] + " 50%," + types[type2] + " 50.001%)"
+        return "linear-gradient(to right," + types[type1] + " 50%," + types[type2] + " 50.001%)"
     }
 }
 
 export default function Pokelist({ page }) {
     
     const [pokemons, setPokemons] = useState([]);
-
     
     useEffect(() => {
         axios.get(`https://pokedex20201.herokuapp.com/pokemons?page=${ page }`)
@@ -48,17 +49,18 @@ export default function Pokelist({ page }) {
 
     console.log(pokemons);
 
-
     return(
         <div className="pokemons">
             <input placeholder="Buscar Pokémon" />
             <ul>
                 {pokemons.map((pokemon) => (
-                    <li style={{background: getColor(pokemon.kind) }} className="pokemon" key={pokemon.id}>
-                        <img alt="pokemon" src={pokemon.image_url} />
-                        <p id="number">#{pokemon.number}</p>
-                        <p className="nome">{pokemon.name[0].toUpperCase() + pokemon.name.slice(1)}</p>
-                    </li>
+                    <Link to={`/pokemons/${pokemon.name}`} key={pokemon.id}>
+                        <li style={{background: getColor(pokemon.kind) }} className="pokemon">
+                            <img alt="pokemon" src={pokemon.image_url} />
+                            <p id="number">#{pokemon.number}</p>
+                            <p className="nome">{pokemon.name[0].toUpperCase() + pokemon.name.slice(1)}</p>
+                        </li>
+                    </Link>
                 ))
                 }
             </ul>
