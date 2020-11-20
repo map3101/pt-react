@@ -6,22 +6,28 @@
         --fire: #FFB433;
         --flying: #D7F1E9;
         --ghost: #E2E2E2;
-        --grass: #5eff53b4;
+        --grass: #5eff53;
         --ground: #AA8546;
         --ice: #AEE3FB;
         --normal: #D7DBA8;
-        --poison: #CE52F9;
+        --poison: #cf52f9;
         --psychic: #FFC157;
         --rock: #757575;
-        --steel: #A1A1A1;
-        --water: #7192FF;
-        --dragon: #43372D;
+        --steel: #a1a1a1;
+        --water: #7192ff;
+        --dragon: #43372d;
+
+        --ref: #e9e9e9;
 }
 
 .pokemons{
     height: fit-content;
     max-width: 100rem;
-    margin: 0 auto 0 15rem;
+    margin: 0 auto;
+}
+
+.pokemons input{
+    margin: 2rem 0 1rem 3.5rem;
 }
 
 ul{
@@ -32,7 +38,6 @@ ul{
 
 .pokemon{
     float: left;
-    border: 2px solid black;
     border-radius: 1rem;
 
     margin: 1rem;
@@ -44,7 +49,6 @@ ul{
     cursor: pointer;
     transition: all 0.3s;
 
-    background-color: var(--grass);
 }
 
 .pokemon:hover{
