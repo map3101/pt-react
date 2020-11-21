@@ -1,25 +1,3 @@
-:root{
-        --bug: #7ED578;
-        --electric: #FFF34B;
-        --fairy: #FF7EE5;
-        --fighting: #F17373;
-        --fire: #FFB433;
-        --flying: #D7F1E9;
-        --ghost: #E2E2E2;
-        --grass: #5eff53;
-        --ground: #AA8546;
-        --ice: #AEE3FB;
-        --normal: #D7DBA8;
-        --poison: #cf52f9;
-        --psychic: #FFC157;
-        --rock: #757575;
-        --steel: #a1a1a1;
-        --water: #7192ff;
-        --dragon: #43372d;
-
-        --ref: #e9e9e9;
-}
-
 .pokemons{
     height: fit-content;
     max-width: 100rem;

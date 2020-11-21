@@ -64,11 +64,16 @@ function Pokepage (){
                         <p id="num">#{pokemon.number}</p>
                         <p>{pokemon.name[0].toUpperCase() + pokemon.name.slice(1)}</p>
                         <div className="type">
-                        {Type(pokemon.kind)[0] === 1
-                            ? <p></p>
-                        : <p>{Type(pokemon.kind)[1]}</p>
-                        }
-                        </div>                 
+                            {Type(pokemon.kind)[0] === 1
+                                ? <p id="onekind" style={{ backgroundColor: Type(pokemon.kind)[2] }}>{Type(pokemon.kind)[1].toUpperCase()}</p>
+                                :<div className="PokeType">
+                                    <p id="type" style={{ backgroundColor: Type(pokemon.kind)[2] }}>{Type(pokemon.kind)[1].toUpperCase()}</p>
+                                    <p id="type"  style={{ backgroundColor: Type(pokemon.kind)[4] }} >{Type(pokemon.kind)[3].toUpperCase()}</p>
+                                </div>
+                            }
+                        </div>
+                        <p id="fisico">Height: {pokemon.height/10} m</p>
+                        <p id="fisico">Weight: {pokemon.weight/10} Kg</p>              
                     </div>
                 }
             </div>
