@@ -44,7 +44,7 @@ export default function Pokelist({ page }) {
     useEffect(() => {
         axios.get(`https://pokedex20201.herokuapp.com/pokemons?page=${ page }`)
         .then((response) => response.data)
-        .then((data) => setPokemons(data.data))
+        .then((data) => setPokemons(data.data));
     }, [page]);
 
     console.log(pokemons);
