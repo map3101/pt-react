@@ -3,11 +3,12 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import Main from './pages/Main';
 import Pokepage from './pages/Pokepage';
+import Auth from './pages/Auth';
 
 const Routes = () => (
     <BrowserRouter>
         <Switch>
-            <Route exact path="/"/>
+            <Route exact path="/" component={Auth}/>
             <Route exact path="/:page" component={Main}/>
             <Route path="/pokemons/:name" component={Pokepage}/>
         </Switch>

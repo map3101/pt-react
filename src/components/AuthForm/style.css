@@ -1,0 +1,33 @@
+.formcard{
+    text-align: center;
+
+    border-radius: 1rem;
+
+    background: linear-gradient(#aa02f8dd, #d106fa);
+
+    height: 28rem;
+    width: 30rem;
+
+    margin: 8rem auto;
+}
+
+.title{
+    font-size: 4rem;
+}
+
+.input{
+    margin-bottom: 6rem;
+}
+
+.input p{
+    font-size: 2rem;
+}
+
+.input input{
+    border-radius: 0.4rem;
+    
+    height: 2rem;
+    width: 20rem;
+
+    background: #e7e7e7
+}
