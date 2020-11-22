@@ -31,3 +31,21 @@
 
     background: #e7e7e7
 }
+
+@media (max-width: 484px) {
+    .formcard{
+        max-width: 20rem;
+    }
+
+    .title{
+        font-size: 3rem;
+    }
+
+    .input p{
+        font-size: 1.5rem;
+    }
+
+    .input input{
+        width: 17rem;
+    }
+}
