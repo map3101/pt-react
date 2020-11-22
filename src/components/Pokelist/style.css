@@ -49,7 +49,7 @@ ul{
 
     color: rgb(255, 255, 255);
     background-color: rgba(0, 0, 0, 0.616);
-    border-radius: 0 0 0.8rem 0.8rem;
+    border-radius: 0 0 1rem 1rem;
 }
 
 #number{
@@ -57,4 +57,7 @@ ul{
 
     border-radius: 0.8rem 0.8rem 0 0;
 }
-  
+
+#favtext{
+    font-size: 2rem;
+}

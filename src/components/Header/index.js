@@ -2,7 +2,7 @@ import './style.css';
 
 import UserImage from '../../assets/poketrainer.jpg';
 import { useEffect, useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 function Header() {
 
@@ -19,6 +19,10 @@ function Header() {
 
     let history = useHistory();
 
+    const userProfile = () => {
+        history.push("/user/Profile")
+    }
+
     const handleLogoutClick = () => {
         setUser({});
         localStorage.clear();
@@ -31,10 +35,10 @@ function Header() {
 
     return (
         <div id="header">
-            <p className="maintext">Pokedex</p>
+            <p className="maintext"><Link to="/1">Pokedex</Link></p>
             {user.user
                ? <div className="log">
-                    <img alt="user" src={UserImage}/>
+                    <img onClick={userProfile} alt="user" src={UserImage}/>
                     <button onClick={handleLogoutClick}>Logout</button>
                 </div>
                 :<div className="log">

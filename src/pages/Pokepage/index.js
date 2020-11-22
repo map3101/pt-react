@@ -90,8 +90,6 @@ function Pokepage (){
         window.location.reload();
     }
 
-    console.log(username);
-
     function search(nameKey, myArray){
         for (var i=0; i < myArray.length; i++) {
             if (myArray[i].name === nameKey) {
@@ -100,8 +98,7 @@ function Pokepage (){
         }
     }
 
-    var favoritado = search(name, userList);
-    console.log(favoritado); 
+    var favoritado = search(name, userList); 
 
     let history = useHistory();
 
