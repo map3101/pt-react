@@ -19,7 +19,7 @@ function Header() {
 
     let history = useHistory();
 
-    const handleLogoutClick = () =>{
+    const handleLogoutClick = () => {
         setUser({});
         localStorage.clear();
         history.push("/")

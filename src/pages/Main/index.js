@@ -11,9 +11,12 @@ function Main (){
     let history = useHistory();
 
     return (
-        <div>
+        <>
             <div className = "Header">
                 <Header/>
+            </div>
+            <div className="Pokelist">
+                <Pokelist page={page}/>
             </div>
             <div id="pagination">
                 {page > 1 &&
@@ -35,10 +38,7 @@ function Main (){
                 <button onClick={() => history.push(`/${parseInt(page)+1}`)}>Next</button>
                 }
             </div>
-            <div className="Pokelist">
-                <Pokelist page={page}/>
-            </div>
-        </div>
+        </>
     );
 }
 

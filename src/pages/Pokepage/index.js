@@ -45,11 +45,63 @@ function Pokepage (){
 
     const name =  useLocation().pathname.slice(10);
 
+    const [user, setUser] = useState({});
+
+    const [userList, setUserList] = useState([]);
+
+    const [username, setUserName] = useState("");
+
     useEffect(() => {
+        const loggedInUser = localStorage.getItem("user")
+
+        if (loggedInUser){
+            const foundUser = JSON.parse(loggedInUser);
+            setUser(foundUser);
+            setUserList(foundUser.pokemons);
+            setUserName(foundUser.user.username);
+        }
+
         axios.get(`https://pokedex20201.herokuapp.com/pokemons/${name}`)
         .then((response) => response.data)
         .then((data) => setPokemon(data))
     }, [name]);
+
+    const favoritar =  async () => {
+        await axios.post(`https://pokedex20201.herokuapp.com/users/${username}/starred/${name}`)
+        user.pokemons.push(pokemon)
+        localStorage.setItem("user", JSON.stringify(user));
+
+        window.location.reload();
+    }
+
+    const desfavoritar = async () => {
+        await axios.delete(`https://pokedex20201.herokuapp.com/users/${username}/starred/${name}`)
+        
+        var index;
+        for (var i = 0; i < user.pokemons.length; i++){
+            if (user.pokemons[i].name === pokemon.name){
+                index = i;
+                break;
+            }
+        }
+        
+        user.pokemons.splice(index, 1);
+        localStorage.setItem("user", JSON.stringify(user));
+        window.location.reload();
+    }
+
+    console.log(username);
+
+    function search(nameKey, myArray){
+        for (var i=0; i < myArray.length; i++) {
+            if (myArray[i].name === nameKey) {
+                return true;
+            }
+        }
+    }
+
+    var favoritado = search(name, userList);
+    console.log(favoritado); 
 
     let history = useHistory();
 
@@ -77,7 +129,15 @@ function Pokepage (){
                             }
                         </div>
                         <p id="fisico">Height: {pokemon.height/10} m</p>
-                        <p id="fisico">Weight: {pokemon.weight/10} Kg</p>              
+                        <p id="fisico">Weight: {pokemon.weight/10} Kg</p> 
+                        {user.user &&
+                            <>
+                            {favoritado === true
+                                ? <button onClick={desfavoritar} className="desfav">Desfavoritar</button>
+                                : <button onClick={favoritar} className="fav">Favoritar</button>
+                            }
+                            </>
+                        }          
                     </div>
                 }
             </div>

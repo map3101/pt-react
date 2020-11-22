@@ -48,11 +48,8 @@ export default function Pokelist({ page }) {
         .then((data) => setPokemons(data.data));
     }, [page]);
 
-    console.log(pokemons);
-
     return(
         <div className="pokemons">
-            <input placeholder="Buscar Pokémon" />
             <ul>
                 {pokemons.map((pokemon) => (
                     <Link to={`/pokemons/${pokemon.name}`} key={pokemon.id}>
