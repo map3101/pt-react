@@ -19,6 +19,9 @@
 
 .log{
     margin-right: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     text-align: center;
 
@@ -36,3 +39,13 @@
     border-radius: 50%;
 }
 
+.log button{
+    border: none;
+    border-bottom: 1px solid black;
+
+    background: none;
+
+    cursor: pointer;
+
+    margin-left: 0.5rem;
+}

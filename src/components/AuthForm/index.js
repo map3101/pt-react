@@ -1,34 +1,60 @@
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import './style.css';
 
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 
 
-const AuthForm = props => {
+const AuthForm = () => {
 
-    const [user, setUser] = useState(props.user);
+    const [username, setUsername] = useState("");
+    const [user, setUser] = useState()
 
-    const form = useRef(null);
+    useEffect(() => {
+        const loggedInUser = localStorage.getItem("user")
 
-    const submit = e => {
-        e.preventDefault()
-        const data = new FormData(form.current);
-        console.log(data.get("username"));
-        axios.post('https://pokedex20201.herokuapp.com/users', {
-            username: data.get("username")
-        })
-      }
+        if (loggedInUser){
+            const foundUser = JSON.parse(loggedInUser);
+            setUser(foundUser);
+        }
+    }, [])
+
+    const submit = async e => {
+        e.preventDefault();
+        
+        try{
+            await axios.post("https://pokedex20201.herokuapp.com/users/", {
+            username: username
+        });
+
+        } catch(error){
+            console.log(error.request)
+            console.log("pegando infos")
+        }
+
+        const response = await axios.get(`https://pokedex20201.herokuapp.com/users/${username}`);
+        localStorage.setItem('user', JSON.stringify(response.data));
+        window.location.reload();
+    }
+
+    if(user){
+        return <Redirect to="/1"/>
+    }
 
     return(
         <> 
             <div className="formcard">
                 <p className="title">POKEDEX</p>
                 <div className="input">
-                    <form ref={form} onSubmit={submit}>
+                    <form onSubmit={submit}>
                         <p>Cadastre-se ou faça login</p>
-                        <input name="username" type="text" placeholder="Insira um nome de usuário"/>
+                        <input 
+                        name="username" 
+                        type="text" 
+                        value={username} 
+                        placeholder="Insira um nome de usuário"
+                        onChange={({ target }) => setUsername(target.value)}/>
                     </form>
                 </div>
                 <Link style={{color: "black"}} to="/1">Entre como convidado</Link>
