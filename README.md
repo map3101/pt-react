@@ -12,4 +12,4 @@
 ### Link do site: https://epic-fermat-554869.netlify.app/
 
 
-Algumas funcionalidades não estão como gostaria, mas estão funcionando bem. Infelizmente não tive muito tempo pra realizar este trabalho.
+Algumas funcionalidades não estão como gostaria, mas estão funcionando bem. Infelizmente não deu muito tempo pra organizar melhor o código.
