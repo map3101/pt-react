@@ -102,3 +102,20 @@
 .desfav{
     background: crimson;
 }
+
+@media (max-width: 1429px) {
+    .goback{
+        margin: 3rem 0 1rem 10rem;
+    }
+}
+
+@media (max-width: 797px) {
+    .goback{
+        margin: 3rem 0 1rem 1rem;
+    }
+
+    .Pokecard{
+        max-width: 25rem;
+        max-height: 30rem;
+    }
+}

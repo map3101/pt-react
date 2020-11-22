@@ -74,7 +74,7 @@ function Favorites(){
                 </ul>
             </div>
             </>
-            : <h1>Not Found</h1>
+            : <Link to="/">Você precisa estar logado para ver seus pokemons favoritos</Link>
         }
         </>
     )

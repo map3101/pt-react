@@ -15,9 +15,6 @@ function Main (){
             <div className = "Header">
                 <Header/>
             </div>
-            <div className="Pokelist">
-                <Pokelist page={page}/>
-            </div>
             <div id="pagination">
                 {page > 1 &&
                 <button onClick={() => history.push(`/${page-1}`)}>Prev.</button>
@@ -25,11 +22,6 @@ function Main (){
                 <button onClick={() => history.push("/1")}>1</button>
                 <button onClick={() => history.push("/2")}>2</button>
                 <button onClick={() => history.push("/3")}>3</button>
-                <button onClick={() => history.push("/4")}>4</button>
-                <button onClick={() => history.push("/5")}>5</button>
-                <button onClick={() => history.push("/6")}>6</button>
-                ...
-                <button onClick={() => history.push("/20")}>20</button>
                 ...
                 <button onClick={() => history.push("/25")}>25</button>
                 ...
@@ -37,6 +29,9 @@ function Main (){
                 {page < 33 &&
                 <button onClick={() => history.push(`/${parseInt(page)+1}`)}>Next</button>
                 }
+            </div>
+            <div className="Pokelist">
+                <Pokelist page={page}/>
             </div>
         </>
     );
