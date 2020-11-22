@@ -1,8 +1,9 @@
-import './style.css'
+import './style.css';
+import backicon from '../../assets/go-back-icon.svg';
 
-import Header from '../../components/Header'
-import { useEffect, useState } from 'react'
-import { useLocation } from 'react-router-dom';
+import Header from '../../components/Header';
+import { useEffect, useState } from 'react';
+import { useLocation, useHistory } from 'react-router-dom';
 import axios from 'axios';
 
 const types = {
@@ -22,7 +23,8 @@ const types = {
     rock: "#757575",
     steel: "#A1A1A1",
     water: "#7192FF",
-    dragon: "#43372D"
+    dragon: "#43372D",
+    dark: "#000000"
 }
 
 // Pegar a quantidade de tipos e as cores
@@ -49,12 +51,14 @@ function Pokepage (){
         .then((data) => setPokemon(data))
     }, [name]);
 
+    let history = useHistory();
 
     return(
         <div>
             <div className="Header">
                 <Header/>
             </div>
+            <img alt="Go Back" src={backicon} className="goback" onClick={() => history.goBack()}/>
             <div className="Pokecard">
                 <div className="imagem">
                     <img alt="pokemon" src={pokemon.image_url}></img>

@@ -21,7 +21,8 @@ const types = {
     rock: "#757575",
     steel: "#A1A1A1",
     water: "#7192FF",
-    dragon: "#43372D"
+    dragon: "#43372D",
+    dark: "#000000"
 }
 
 // Pegar o(s) tipo(s) do pokemon e retornar um gradiente com a cor
@@ -57,7 +58,6 @@ export default function Pokelist({ page }) {
                     <Link to={`/pokemons/${pokemon.name}`} key={pokemon.id}>
                         <li style={{background: getColor(pokemon.kind) }} className="pokemon">
                             <img alt="pokemon" src={pokemon.image_url} />
-                            <p id="number">#{pokemon.number}</p>
                             <p className="nome">{pokemon.name[0].toUpperCase() + pokemon.name.slice(1)}</p>
                         </li>
                     </Link>

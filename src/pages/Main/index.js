@@ -2,16 +2,13 @@ import './style.css';
 
 import Header from '../../components/Header';
 import Pokelist from '../../components/Pokelist';
-import { useState } from 'react';
+import { useHistory, useLocation } from 'react-router-dom';
 
 function Main (){
 
-    const [pag, setPag] = useState(1);
+    const page = useLocation().pathname.slice(1);
 
-    function handleClick(page){
-        setPag(page);
-    }
-
+    let history = useHistory();
 
     return (
         <div>
@@ -19,27 +16,27 @@ function Main (){
                 <Header/>
             </div>
             <div id="pagination">
-                {pag > 1 &&
-                <button onClick={() => handleClick(pag-1)}>Prev.</button>
+                {page > 1 &&
+                <button onClick={() => history.push(`/${page-1}`)}>Prev.</button>
                 }
-                <button onClick={() => handleClick(1)}>1</button>
-                <button onClick={() => handleClick(2)}>2</button>
-                <button onClick={() => handleClick(3)}>3</button>
-                <button onClick={() => handleClick(4)}>4</button>
-                <button onClick={() => handleClick(5)}>5</button>
-                <button onClick={() => handleClick(6)}>6</button>
+                <button onClick={() => history.push("/1")}>1</button>
+                <button onClick={() => history.push("/2")}>2</button>
+                <button onClick={() => history.push("/3")}>3</button>
+                <button onClick={() => history.push("/4")}>4</button>
+                <button onClick={() => history.push("/5")}>5</button>
+                <button onClick={() => history.push("/6")}>6</button>
                 ...
-                <button onClick={() => handleClick(20)}>20</button>
+                <button onClick={() => history.push("/20")}>20</button>
                 ...
-                <button onClick={() => handleClick(25)}>25</button>
+                <button onClick={() => history.push("/25")}>25</button>
                 ...
-                <button onClick={() => handleClick(33)}>33</button>
-                {pag < 33 &&
-                <button onClick={() => handleClick(pag+1)}>Next</button>
+                <button onClick={() => history.push("/33")}>33</button>
+                {page < 33 &&
+                <button onClick={() => history.push(`/${parseInt(page)+1}`)}>Next</button>
                 }
             </div>
             <div className="Pokelist">
-                <Pokelist page={pag}/>
+                <Pokelist page={page}/>
             </div>
         </div>
     );
