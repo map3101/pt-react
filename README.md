@@ -2,7 +2,7 @@
 
 Projeto para aprendizado em React JS
 
- Dupla: Marcelo Aiache Postiglione
+Trainee: Marcelo Aiache Postiglione
   
  Funções implementadas:  
 **Exploração:** o usuário deve ser capaz de visualizar uma listagem de pokemons, que serão fornecidos por uma API.  
